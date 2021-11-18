@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { store } from '../../../app/store';
 
-const Loginmain = (state) => {
-    let currentValue
+const Loginmain = () => {
     useEffect(() => {
-       console.log(state)
+       console.log(store.getState())
     }, [])
     return (
         <main className="main bg-dark">
