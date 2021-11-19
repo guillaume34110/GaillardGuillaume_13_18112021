@@ -5,6 +5,7 @@ const userSlice = createSlice ({
     initialState: {
         connected: false, 
         token: null,
+        profile : {}
     },
     reducers:{
         login : (state,token) => {
@@ -15,8 +16,11 @@ const userSlice = createSlice ({
             state.connected = false; 
             state.token = null
         },
+        profile : (state ,user) => {
+            state.profile = user
+        }
     }
 })
-export const {login, logout} = userSlice.actions
+export const {login, logout, profile} = userSlice.actions
 
 export default userSlice.reducer
