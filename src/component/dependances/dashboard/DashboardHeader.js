@@ -11,7 +11,7 @@ const Dashboardheader = () => {
 const dispatch = useDispatch()
 
 useEffect(() => {
-   console.log(userData);
+   console.log(userData,'dats ici');
 }, [])
     const goToSignOut = () => {
         dispatch(logout())
@@ -36,7 +36,7 @@ useEffect(() => {
             <div className="flex">
             <div className="main-nav-item" onClick={goToDashboard}>
                 <FontAwesomeIcon className="fa fa-user-circle " icon={faUserCircle} />
-                {userData.profile.payload.firstName}
+                {userData.profile?.payload?.firstName}
             </div>
             <div className="main-nav-item" onClick={goToSignOut}>
               <FontAwesomeIcon className="fa fa-sign-out " icon={faSignOutAlt} />

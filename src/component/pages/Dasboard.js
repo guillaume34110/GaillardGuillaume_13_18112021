@@ -5,6 +5,7 @@ import { store } from '../../app/store';
 import { getProfile } from '../../RequestAPI/auth';
 import {  profile } from '../../user-data/userRedux';
 import { useDispatch, useSelector } from 'react-redux';
+import Dasboardmain from '../dependances/dashboard/DasboardMain';
 
 const Dasboard = () => {
     const dispatch = useDispatch()
@@ -15,16 +16,17 @@ const Dasboard = () => {
     }, [])
 
     const apiCall = async () => {
-        const newData = await getProfile(store.getState().userData.token.payload)
-        if (newData.data) {
-            console.log(newData);
-            dispatch(profile(newData.data.body))
+        const newDataProfile = await getProfile(store.getState().userData.token.payload)
+        if (newDataProfile.data) {
+            console.log(newDataProfile);
+            dispatch(profile(newDataProfile.data.body))
         }
+      
         }
         return (
             <div>
                 <Dashboardheader  />
-                hi
+                <Dasboardmain />
                 <Footer />
             </div>
         );
