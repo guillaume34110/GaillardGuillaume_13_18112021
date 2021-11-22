@@ -31,6 +31,7 @@ const Editname = ({modeSet ,setModeSet}) => {
             console.log(newDataProfile);
             dispatch(profile(newDataProfile.data.body))
         }
+        cancel()
     }
     }
     const cancel = () => {
@@ -42,12 +43,12 @@ const Editname = ({modeSet ,setModeSet}) => {
     return (
         <div className="header">
         <h1 className = {"welcome-" + modeSet}>Welcome back</h1>
-        <h2 className ='user-name' ref = {dataNameRef}>{userData.profile?.payload?.firstName +' '+ userData.profile?.payload?.lastName }!</h2>
+        <h2 className ='user-name' ref = {dataNameRef}>{userData.profile?.payload?.firstName +' '+ userData.profile?.payload?.lastName +  " !"}</h2>
         <button className="edit-button " onClick={onpenInputs} ref = {editRef}>Edit Name</button>
         <div className = "hiden edit-inputs" ref = {inputsRef}>
             <div className = " flex">
-        <input className = "edit-input" type="text"  id="fistName" ref={firstNameRef} /> 
-        <input className = "edit-input" type="text" id="lastName" ref={lastNameRef} /> 
+        <input className = "edit-input" type="text"  id="fistName" placeholder= {userData.profile?.payload?.firstName} ref={firstNameRef} min = "2" max = "20"/> 
+        <input className = "edit-input" type="text" id="lastName" placeholder= {userData.profile?.payload?.lastName} ref={lastNameRef} min = "2" max = "20"/> 
          </div>
          <div className = "flex">
          <button className="save-button btn" onClick={save} ref = {saveRef}>Save</button>
